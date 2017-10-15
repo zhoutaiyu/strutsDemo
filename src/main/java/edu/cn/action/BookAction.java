@@ -43,6 +43,8 @@ public class BookAction {
      * @throws Exception
      */
     public String queryAll() throws Exception {
+        //将bookService.selectAll()返回值命名为booklist属性存入request域，
+        // 和request.setattribute()方法功能相同
         ActionContext.getContext().put("booklist", bookService.selectAll());
         msg = "全部图书：";
         ActionContext.getContext().put("msg", msg);

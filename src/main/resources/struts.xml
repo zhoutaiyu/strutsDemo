@@ -5,9 +5,13 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <package name="default" namespace="/" extends="struts-default">
+        <!--action请求通配符，比如book_insert.action转到BookAction中的insert方法处理-->
+        <!--默认为execute()方法执行-->
         <action name="book_*" class="edu.cn.action.BookAction" method="{1}">
+            <!---返回字符串对应的地址映射-->
             <result name="bookList">/bookList.jsp</result>
             <result name="editBook">/editBook.jsp</result>
+            <!--struts2 2.5.5版本不支持通配符映射action，需要设置允许方法的集合-->
             <allowed-methods>queryByType,queryAll,insert,edit,editSubmit,delete</allowed-methods>
         </action>
     </package>
